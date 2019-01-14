@@ -1,6 +1,7 @@
 package com.hngdngcorp.hngdng.lab2bai3androidnangcao;
 
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -21,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
         mEdtInput = (EditText) findViewById(R.id.edtInput);
         mButton = (Button) findViewById(R.id.button);
+
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -37,18 +39,22 @@ public class MainActivity extends AppCompatActivity {
                     if ( input.contains("MEM")){
                         Intent intent = new Intent(ACTION_TEST);
                         intent.putExtra("output","Chúc mừng bạn được giảm giá 15%");
+                        sendBroadcast(intent);
                     }else if ( input.contains("VIP")){
                         Intent intent = new Intent(ACTION_TEST);
                         intent.putExtra("output","Chúc mừng bạn được giảm giá 50%");
+                        sendBroadcast(intent);
                     }else {
                         Intent intent = new Intent(ACTION_TEST);
                         intent.putExtra("output","Bạn không được giảm giá");
+                        sendBroadcast(intent);
                     }
                 }
                 // báo lỗi khi không nhập đủ 9 kí tự
                 else {
                     Intent intent = new Intent(ACTION_TEST);
                     intent.putExtra("output","Dãy nhập vào không đủ 9 kí tự");
+                    sendBroadcast(intent);
                 }
             }
         });

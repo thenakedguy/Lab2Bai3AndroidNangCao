@@ -3,6 +3,7 @@ package com.hngdngcorp.hngdng.lab2bai3androidnangcao;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
@@ -15,7 +16,8 @@ public class SecondActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
-
+        IntentFilter intentFilter = new IntentFilter(ACTION_TEST);
+        registerReceiver(broadcastReceiver,intentFilter);
         mTvOutput = (TextView) findViewById(R.id.tvOutput);
 
         //Khai báo broadcastRêciver
@@ -23,7 +25,7 @@ public class SecondActivity extends AppCompatActivity {
             @Override
             public void onReceive(Context context, Intent intent) {
                 String s = intent.getStringExtra("output");
-                if(s != null) mTvOutput.setText(s);
+                if(s != null) mTvOutput.setText("abcd");
             }
         } ;
     }
