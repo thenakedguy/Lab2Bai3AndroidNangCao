@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Bài 3. xử lí chuỗi </string>
+    <string name="input_screen_name">Nhập vào mã để xử lí </string>
+    <string name="output_screen_name">Giảm giá cho thành viên</string>
+</resources>
